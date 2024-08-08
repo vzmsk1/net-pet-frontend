@@ -129,6 +129,14 @@ h6 {
     font: inherit;
 }
 
+.section {
+	padding-top: 15rem;
+	
+	display: flex;
+	flex-direction: column;
+	row-gap: 2.5rem;
+}
+
 
 @media (max-width: 48em) {
     html {

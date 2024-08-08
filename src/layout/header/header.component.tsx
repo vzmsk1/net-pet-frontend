@@ -1,9 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import Button from "../../components/button/button.component";
 import styles from "./header.module.css";
 import type { IHeaderProps } from "./header.props";
 
 export const Header = ({ title }: IHeaderProps) => {
+  const { jwtToken } = useOutletContext<any>();
+  const { setJwtToken } = useOutletContext<any>();
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    if (jwtToken) {
+      setJwtToken("");
+      navigate("/login");
+    }
+  };
+
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.title}>
@@ -19,17 +31,24 @@ export const Header = ({ title }: IHeaderProps) => {
         <Link to="/genres" className={styles.navLink}>
           genres
         </Link>
-        <Link to="/admin/movie/0" className={styles.navLink}>
-          add movie
-        </Link>
-        <Link to="/admin" className={styles.navLink}>
-          catalogue
-        </Link>{" "}
-        <Link to="/graphql" className={styles.navLink}>
-          graphQL
-        </Link>
+        {jwtToken && (
+          <>
+            <Link to="/admin/movie/0" className={styles.navLink}>
+              add movie
+            </Link>
+            <Link to="/admin" className={styles.navLink}>
+              catalogue
+            </Link>{" "}
+            <Link to="/graphql" className={styles.navLink}>
+              graphQL
+            </Link>
+          </>
+        )}
       </nav>
-      <Button link="/login">login</Button>
+
+      <Button onClick={logout} link="/login">
+        {jwtToken ? "logout" : "login"}
+      </Button>
     </header>
   );
 };

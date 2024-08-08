@@ -2,7 +2,6 @@ import type { FunctionComponent } from "react";
 import { Header } from "./header/header.component";
 import type { ILayoutProps } from "./layout.props";
 import styles from "./layout.module.css";
-import cn from "classnames";
 
 const Layout = ({ children }: ILayoutProps) => {
   return (

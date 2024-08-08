@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { withLayout } from "./layout/layout.component";
 
 function App() {
-  return <Outlet />;
+  const [jwtToken, setJwtToken] = useState("");
+
+  return (
+    <>
+      <Outlet
+        context={{
+          jwtToken,
+          setJwtToken,
+        }}
+      />
+    </>
+  );
 }
 
-export default withLayout(App);
-
-// export default App;
+export default App;

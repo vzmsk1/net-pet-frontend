@@ -1,0 +1,18 @@
+.labelWrap,
+.label {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.input {
+	padding-bottom: 1rem;
+	
+	border-bottom: 0.1px solid rgba(255, 255, 255, 0.5);
+	
+	transition: border-bottom 0.2s ease;
+}
+
+.input:focus {
+	border-bottom: 0.1px solid rgba(255, 255, 255, 1);
+}

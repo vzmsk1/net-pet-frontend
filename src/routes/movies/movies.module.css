@@ -1,0 +1,35 @@
+
+.table {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.row {
+	padding-bottom: 1rem;
+	
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-bottom: 0.1px solid rgba(255, 255, 255, 0.5);
+}
+
+.text {
+	margin-right: auto;
+}
+
+.row .text:first-child {
+	text-decoration: underline;
+}
+
+
+.heading {
+	font-weight: 500;
+	
+	opacity: 0.6;
+}
+
+@media (any-hover: hover) {
+	.row .text:first-child:hover {
+		text-decoration: none;
+	}
+}

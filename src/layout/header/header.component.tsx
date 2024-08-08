@@ -1,34 +1,35 @@
+import { Link } from "react-router-dom";
+import Button from "../../components/button/button.component";
 import styles from "./header.module.css";
-import cn from "classnames";
 import type { IHeaderProps } from "./header.props";
 
 export const Header = ({ title }: IHeaderProps) => {
   return (
     <header className={styles.header}>
-      <span className={styles.title}>{title}</span>
+      <Link to="/" className={styles.title}>
+        {title}
+      </Link>
       <nav className={styles.nav}>
-        <a href="#" className={styles.navLink}>
+        <Link to="/" className={styles.navLink}>
           home
-        </a>
-        <a href="#" className={styles.navLink}>
+        </Link>
+        <Link to="/movies" className={styles.navLink}>
           movies
-        </a>
-        <a href="#" className={styles.navLink}>
+        </Link>
+        <Link to="/genres" className={styles.navLink}>
           genres
-        </a>
-        <a href="#" className={styles.navLink}>
+        </Link>
+        <Link to="/admin/movie/0" className={styles.navLink}>
           add movie
-        </a>
-        <a href="#" className={styles.navLink}>
+        </Link>
+        <Link to="/admin" className={styles.navLink}>
           catalogue
-        </a>{" "}
-        <a href="#" className={styles.navLink}>
+        </Link>{" "}
+        <Link to="/graphql" className={styles.navLink}>
           graphQL
-        </a>
+        </Link>
       </nav>
-      <a href="#" className={styles.link}>
-        login
-      </a>
+      <Button link="/login">login</Button>
     </header>
   );
 };

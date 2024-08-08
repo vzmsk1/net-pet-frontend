@@ -1,9 +1,9 @@
 import React from "react";
-import Dummy from "./components/dummy/dummy.component";
+import { Outlet } from "react-router-dom";
 import { withLayout } from "./layout/layout.component";
 
 function App() {
-  return <Dummy title="find a movie to watch tonight" />;
+  return <Outlet />;
 }
 
 export default withLayout(App);

@@ -1,0 +1,21 @@
+.h1 {
+	max-width: 101rem;
+
+  font-size: 10rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+.anim {
+		animation: fade 3s ease infinite;
+}
+
+@keyframes fade {
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}

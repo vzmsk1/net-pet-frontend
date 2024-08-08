@@ -18,20 +18,6 @@
   font-size: 5rem;
 }
 
-.link {
-  padding: 1rem 2rem;
-
-  display: inline-flex;
-  align-items: center;
-  border-radius: 1rem;
-
-  background-color: red;
-
-  text-align: center;
-
-  transition: background-color 0.2s ease;
-}
-
 .nav {
   position: absolute;
   left: 50%;
@@ -58,9 +44,6 @@
 }
 
 @media (any-hover: hover) {
-  .link:hover {
-    background-color: #a71515;
-  }
   .navLink:hover {
     opacity: 0.8;
   }

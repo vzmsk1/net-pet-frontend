@@ -17,14 +17,34 @@ const Login = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("email/pass", email, password);
-
-    if (email === "admin@example.com") {
-      setJwtToken("abc");
-      navigate("/");
-    } else {
-      alert("invalid credentials");
+    // build the request payload
+    const payload = {
+      email,
+      password,
+      
     }
+    
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include' as RequestCredentials,
+      body: JSON.stringify(payload)
+      }
+      
+      fetch('/authenticate', requestOptions).then(
+        (response) => response.json()
+      ).then((data) => {
+        if (data.error) {
+          alert(data.message)
+        } else {
+          setJwtToken(data.access_token)
+          navigate('/')
+        }
+      }).catch(error => {
+        alert(error)
+      })
   };
 
   return (

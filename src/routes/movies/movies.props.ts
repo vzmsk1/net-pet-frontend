@@ -5,4 +5,7 @@ export interface IMovieProps {
   runtime: number;
   mpaa_rating: string;
   description: string;
+  image?: string;
+  created_at?: string;
+  updated_at?: string;
 }

@@ -1,9 +1,4 @@
-import type {
-  ButtonHTMLAttributes,
-  DetailedHTMLProps,
-  HTMLProps,
-  ReactNode,
-} from "react";
+import type { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from "react";
 
 export interface IButtonProps
   extends DetailedHTMLProps<

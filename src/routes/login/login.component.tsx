@@ -1,4 +1,4 @@
-import React, { type FormEvent, useState } from "react";
+import React, { type FormEvent, useCallback, useEffect, useState } from "react";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import Button from "../../components/button/button.component";
 import Input from "../../components/input/input.component";
@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setJwtToken } = useOutletContext<any>();
+  const { setJwtToken, toggleRefresh } = useOutletContext<any>();
 
   const navigate = useNavigate();
 
@@ -21,30 +21,31 @@ const Login = () => {
     const payload = {
       email,
       password,
-      
-    }
-    
+    };
+
     const requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      credentials: 'include' as RequestCredentials,
-      body: JSON.stringify(payload)
-      }
-      
-      fetch('/authenticate', requestOptions).then(
-        (response) => response.json()
-      ).then((data) => {
+      credentials: "include" as RequestCredentials,
+      body: JSON.stringify(payload),
+    };
+
+    fetch("/authenticate", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
         if (data.error) {
-          alert(data.message)
+          alert(data.message);
         } else {
-          setJwtToken(data.access_token)
-          navigate('/')
+          setJwtToken(data.access_token);
+          toggleRefresh(true);
+          navigate("/");
         }
-      }).catch(error => {
-        alert(error)
       })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
   return (

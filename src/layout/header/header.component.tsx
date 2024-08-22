@@ -1,20 +1,11 @@
-import { Link, useNavigate, useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import Button from "../../components/button/button.component";
 import styles from "./header.module.css";
 import type { IHeaderProps } from "./header.props";
 
 export const Header = ({ title }: IHeaderProps) => {
   const { jwtToken } = useOutletContext<any>();
-  const { setJwtToken } = useOutletContext<any>();
-
-  const navigate = useNavigate();
-
-  const logout = () => {
-    if (jwtToken) {
-      setJwtToken("");
-      navigate("/login");
-    }
-  };
+  const { logout } = useOutletContext<any>();
 
   return (
     <header className={styles.header}>
@@ -46,9 +37,11 @@ export const Header = ({ title }: IHeaderProps) => {
         )}
       </nav>
 
-      <Button onClick={logout} link="/login">
-        {jwtToken ? "logout" : "login"}
-      </Button>
+      {jwtToken ? (
+        <Button onClick={logout}>logout</Button>
+      ) : (
+        <Button link="/login">login</Button>
+      )}
     </header>
   );
 };

@@ -8,4 +8,6 @@ export interface IMovieProps {
   image?: string;
   created_at?: string;
   updated_at?: string;
+  genres?: { id: number; checked: boolean; genre: string }[] | [];
+  genres_array?: any[];
 }

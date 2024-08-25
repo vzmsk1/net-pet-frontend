@@ -4,7 +4,7 @@ export interface ISelectProps {
   heading: string;
   name: string;
   value?: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: ChangeEvent<HTMLSelectElement>) => void;
   placeholder: string;
   options: ISelectOptionProps[];
   errorMsg: string;

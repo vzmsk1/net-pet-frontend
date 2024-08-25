@@ -11,6 +11,8 @@
   justify-content: space-between;
   width: 170rem;
   
+  background-color: #000000;
+  
   transform: translateX(-50%);
 }
 

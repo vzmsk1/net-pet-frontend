@@ -5,7 +5,8 @@
 	row-gap: 1rem;
 }
 
-.input {
+.input,
+.select {
 	padding-bottom: 1rem;
 	
 	border-bottom: 0.1px solid rgba(255, 255, 255, 0.5);
@@ -20,4 +21,15 @@
 .error {
 	opacity: 0;
 	visibility: hidden;
+}
+
+.select {
+	    border-left: none;
+	    border-right: none;
+	    border-top: none;
+	border-radius: 0;
+	
+	color: #ffffff;
+	
+	background: none;
 }

@@ -1,7 +1,7 @@
 import type { IInputProps } from "../input/input.props";
 import styles from "./checkbox.module.css";
 
-const Checkbox = ({ name, value, onChange, checked, title }: IInputProps) => {
+const Checkbox = ({ name, value, onChange, checked, heading }: IInputProps) => {
   return (
     <div className={styles.wrap}>
       <input
@@ -13,7 +13,7 @@ const Checkbox = ({ name, value, onChange, checked, title }: IInputProps) => {
         checked={checked}
         className={styles.input}
       />
-      <label className={styles.label}>{title}</label>l
+      <label className={styles.label}>{heading}</label>
     </div>
   );
 };

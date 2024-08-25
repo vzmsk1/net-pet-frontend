@@ -130,6 +130,7 @@ h6 {
 }
 
 .section {
+    margin-bottom: 5rem;
 	padding-top: 15rem;
 	
 	display: flex;
